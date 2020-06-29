@@ -59,11 +59,11 @@ export default {
 .underline {
   transition: all ease .2s;
   position: absolute;
-  bottom: -1px;
+  bottom: 2px;
   display: block;
   width: 100%;
   border-radius: 10px;
-  height: 5px;
+  height: 2px;
   background: var(--link-color, #38c172);
   opacity: 0.5;
   z-index: -1;
