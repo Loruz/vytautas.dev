@@ -6,13 +6,13 @@
   >
     <div class="container content-box">
       <h1 class="title">
-        Hello, Vytautas here.
+        Hello, my name is Vytautas.
       </h1>
       <h2 class="subtitle">
-        I’m a JavaScript developer and a currently working on <SpecialLink to="https://whatagraph.com/">Whatagraph</SpecialLink> project.<br>
+        I’m a Vue.js / JavaScript developer and a currently working in <SpecialLink to="https://whatagraph.com/">Whatagraph</SpecialLink> project.<br>
       </h2>
       <p class="paragraph">
-        Always searching for new inspirations and technologies to learn. Passioned about sowftware architecture, and best practices.<br/>
+        I always search for new inspirations and technologies to learn. Passioned about sowftware architecture, and best practices.<br/>
       </p>
       <p class="paragraph">
         You can follow me on <SpecialLink to="https://twitter.com/Loruzzz">Twitter</SpecialLink> or <SpecialLink to="https://instagram.com/vytasprei">Instagram</SpecialLink>

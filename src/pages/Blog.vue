@@ -5,7 +5,8 @@
 
     <!-- List posts -->
     <div class="posts">
-      <PostCard v-for="edge in $page.posts.edges" :key="edge.node.id" :post="edge.node"/>
+      Comming soon
+<!--      <PostCard v-for="edge in $page.posts.edges" :key="edge.node.id" :post="edge.node"/>-->
     </div>
 
   </Layout>
@@ -52,7 +53,7 @@ export default {
     meta: [
       {
         name: 'description',
-        content: 'A blog about Vue.js by Damian Dulisz',
+        content: 'Vytautas Preiksaitis personal blog',
       },
       {
         key: 'og:title',
@@ -67,7 +68,7 @@ export default {
       {
         key: 'og:url',
         name: 'og:url',
-        content: 'https://dulisz.com/blog',
+        content: 'https://vytautas.dev/blog',
       },
       {
         key: 'twitter:card',
@@ -77,19 +78,25 @@ export default {
       {
         key: 'twitter:creator',
         name: 'twitter:creator',
-        content: '@damiandulisz',
+        content: '@Loruzzz',
       },
       {
         key: 'og:description',
         name: 'og:description',
-        content: 'A blog about Vue.js by Damian Dulisz',
+        content: 'Vytautas Preiksaitis personal blog',
       },
       {
         key: 'twitter:description',
         name: 'twitter:description',
-        content: 'A blog about Vue.js by Damian Dulisz',
+        content: 'Vytautas Preiksaitis personal blog',
       },
     ]
   }
 }
 </script>
+<style >
+  .posts {
+    display: flex;
+    justify-content: center;
+  }
+</style>

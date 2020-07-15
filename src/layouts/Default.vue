@@ -18,7 +18,7 @@
       <slot/>
     </main>
 
-    <SignupForm v-if="showNewsletter"/>
+<!--    <SignupForm v-if="showNewsletter"/>-->
     <footer v-if="showFooter" class="footer">
       <span class="footer__copyright">Copyright © {{ new Date().getFullYear() }}. Vytautas Peikšaitis</span>
       <span class="footer__links">Powered by <a href="//gridsome.org"> Gridsome </a></span>
