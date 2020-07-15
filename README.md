@@ -1,4 +1,4 @@
-# Dulisz.com
+# vytautas.dev
 
 > My homepage and blog
 
