@@ -19,15 +19,6 @@
       <div class="post__footer">
         <PostTags :post="$page.post" />
       </div>
-      <div class="post-comments">
-        <a :href="discussUrl" target="_blank">
-          Discuss on Twitter
-        </a>
-        <span style="padding: 0 8px;">•</span>
-        <a :href="editUrl" target="_blank">
-          Edit on GitHub
-        </a>
-      </div>
     </div>
 
     <Author class="post-author" :show-title="true" />
@@ -56,12 +47,12 @@ export default {
         {
           key: 'og:title',
           name: 'og:title',
-          content: `${this.$page.post.title} by Damian Dulisz`,
+          content: `${this.$page.post.title} by Vytautas Preikšaitis`,
         },
         {
           key: 'twitter:title',
           name: 'twitter:title',
-          content: `${this.$page.post.title} by Damian Dulisz`,
+          content: `${this.$page.post.title} by Vytautas Preikšaitis`,
         },
         {
           key: 'og:description',
@@ -76,7 +67,7 @@ export default {
         {
           key: 'twitter:creator',
           name: 'twitter:creator',
-          content: '@damiandulisz',
+          content: '@Loruzz',
         },
         {
           key: 'twitter:card',
@@ -86,7 +77,7 @@ export default {
         {
           key: 'og:url',
           name: 'og:url',
-          content: `https://dulisz.com${this.$page.post.path}`,
+          content: `https://vytautas.dev${this.$page.post.path}`,
         }
       ]
     }

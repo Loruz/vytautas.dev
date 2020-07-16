@@ -5,8 +5,7 @@
 
     <!-- List posts -->
     <div class="posts">
-      Comming soon
-<!--      <PostCard v-for="edge in $page.posts.edges" :key="edge.node.id" :post="edge.node"/>-->
+      <PostCard v-for="edge in $page.posts.edges" :key="edge.node.id" :post="edge.node"/>
     </div>
 
   </Layout>
@@ -95,8 +94,4 @@ export default {
 }
 </script>
 <style >
-  .posts {
-    display: flex;
-    justify-content: center;
-  }
 </style>
