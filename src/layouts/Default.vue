@@ -8,7 +8,7 @@
 
       <div class="header__right">
         <g-link to="/">About</g-link>
-        <g-link to="/blog">Blog</g-link>
+       <!-- <g-link to="/blog">Blog</g-link>-->
 <!--        <g-link to="/workshops">Workshops</g-link>-->
         <ToggleTheme />
       </div>
