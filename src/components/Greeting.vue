@@ -32,7 +32,7 @@ const GREETINGS = {
     'EARLY_MORNING': 'Dzień dobry',
     'MORNING': 'Dzień dobry',
     'AFTERNOON': 'Dzień dobry',
-    'EVENING': 'Dobry wieczór'
+    'EVENING': 'Beleka'
   },
   de: {
     'EARLY_MORNING': 'Guten Morgen',
