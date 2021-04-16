@@ -9,7 +9,7 @@
         Hello, my name is Vytautas.
       </h1>
       <h2 class="subtitle">
-        I’m a Vue.js / JavaScript developer and a currently working in <SpecialLink to="https://whatagraph.com/">Whatagraph</SpecialLink> project.<br>
+        I’m a JavaScript engineer, currently working with Vue.js / React.js technologies
       </h2>
       <p class="paragraph">
         I always in search for new inspirations and technologies to learn. Passioned about software architectures, and best practices.<br/>
