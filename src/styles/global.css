@@ -1,0 +1,12 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+/* DM Mono from Google Fonts - applied in Layout */
+@theme {
+  --font-sans: "DM Mono", ui-monospace, monospace;
+  --font-mono: "DM Mono", ui-monospace, monospace;
+}
+
+body {
+  font-family: "DM Mono", ui-monospace, monospace;
+}
