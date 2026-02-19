@@ -1,18 +1,35 @@
 <header class="border-b border-zinc-200">
-  <nav class="mx-auto flex max-w-3xl items-center justify-between px-4 py-6 sm:px-6">
-    <a href="/" class="text-lg font-medium text-green-800 hover:text-green-700">
-      vytautas.dev
-    </a>
-    <ul class="flex gap-6">
-      <li>
-        <a href="/" class="text-zinc-600 hover:text-green-800">Home</a>
-      </li>
-      <li>
-        <a href="/blog" class="text-zinc-600 hover:text-green-800">Blog</a>
-      </li>
-      <li>
-        <a href="/portfolio" class="text-zinc-600 hover:text-green-800">Portfolio</a>
-      </li>
-    </ul>
-  </nav>
+	<nav
+		class="mx-auto flex max-w-3xl items-center justify-between px-4 py-6 sm:px-6"
+	>
+		<a
+			href="/"
+			class="logo-link text-xl font-bold text-green-800 hover:text-green-700"
+		>
+			vytautas.<span class="logo-dev">dev</span>
+		</a>
+		<ul class="flex gap-6">
+			<li>
+				<a href="/blog" class="text-zinc-600 hover:text-green-800"
+					>Blog</a
+				>
+			</li>
+			<li>
+				<a href="/portfolio" class="text-zinc-600 hover:text-green-800"
+					>Portfolio</a
+				>
+			</li>
+		</ul>
+	</nav>
 </header>
+
+<style>
+	.logo-dev {
+		display: inline-block;
+		transition: transform 0.2s ease-out;
+		transform-origin: top left;
+	}
+	.logo-link:hover .logo-dev {
+		transform: translate(10px, 10px) rotate(45deg);
+	}
+</style>

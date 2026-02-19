@@ -1,27 +1,47 @@
 ---
+import { ClientRouter } from 'astro:transitions';
 import '../styles/global.css';
-import MainHead from '../components/MainHead.astro';
-import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import MainHead from '../components/MainHead.astro';
 
 interface Props {
-  title: string;
-  description?: string;
+	title: string;
+	description?: string;
+	image?: string;
+	type?: 'website' | 'article';
+	publishedTime?: Date;
+	author?: string;
 }
 
-const { title, description = 'Personal blog and portfolio' } = Astro.props;
+const {
+	title,
+	description = 'Personal blog and portfolio',
+	image,
+	type,
+	publishedTime,
+	author,
+} = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
-  <head>
-    <MainHead title={title} description={description} />
-  </head>
-  <body class="min-h-screen bg-white text-zinc-800 antialiased">
-    <Header />
-    <main class="mx-auto max-w-3xl px-4 py-12 sm:px-6">
-      <slot />
-    </main>
-    <Footer />
-  </body>
+	<head>
+		<MainHead
+			title={title}
+			description={description}
+			image={image}
+			type={type}
+			publishedTime={publishedTime}
+			author={author}
+		/>
+		<ClientRouter />
+	</head>
+	<body class="flex min-h-screen flex-col bg-white text-zinc-800 antialiased">
+		<Header />
+		<main class="mx-auto w-full max-w-3xl px-4 py-12 sm:px-6">
+			<slot />
+		</main>
+		<Footer />
+	</body>
 </html>

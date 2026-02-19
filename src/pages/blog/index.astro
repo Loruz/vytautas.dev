@@ -1,42 +1,57 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const posts = (await getCollection('blog'))
-  .filter((p) => !p.data.draft)
-  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+	.filter((p) => !p.data.draft)
+	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
 
 <BaseLayout title="Blog — vytautas.dev" description="Blog posts and articles">
-  <h1 class="text-3xl font-medium tracking-tight text-green-800">Blog</h1>
-  <p class="mt-2 text-zinc-600">Posts, tutorials, and notes.</p>
+	<div class="mx-auto w-full">
+		<h1 class="text-3xl font-medium tracking-tight text-green-800">
+			My post list
+		</h1>
+		<p class="mt-2 text-zinc-600">
+			Technical posts, retrospective articles, and various notes.
+		</p>
 
-  <ul class="mt-10 space-y-8">
-    {posts.map((post) => (
-      <li class="border-b border-zinc-200 pb-8 last:border-0">
-        <a href={`/blog/${post.id}`} class="group block">
-          <h2 class="text-xl font-medium text-green-800 group-hover:text-green-700">
-            {post.data.title}
-          </h2>
-          {post.data.description && (
-            <p class="mt-1 text-zinc-600">{post.data.description}</p>
-          )}
-          <time
-            class="mt-2 block text-sm text-zinc-500"
-            datetime={post.data.pubDate.toISOString()}
-          >
-            {post.data.pubDate.toLocaleDateString('en-US', {
-              year: 'numeric',
-              month: 'long',
-              day: 'numeric',
-            })}
-          </time>
-        </a>
-      </li>
-    ))}
-  </ul>
+		<ul class="mt-10 space-y-8">
+			{
+				posts.map((post) => (
+					<li class="border-b border-zinc-200 pb-8 last:border-0">
+						<a href={`/blog/${post.id}`} class="group block">
+							<h2
+								class="text-xl font-medium text-green-800 group-hover:text-green-700"
+								transition:name={`post-title-${post.id}`}
+							>
+								{post.data.title}
+							</h2>
+							{post.data.description && (
+								<p class="mt-1 text-zinc-600">
+									{post.data.description}
+								</p>
+							)}
+							<time
+								class="mt-2 block text-sm text-zinc-500"
+								datetime={post.data.pubDate.toISOString()}
+							>
+								{post.data.pubDate.toLocaleDateString('en-US', {
+									year: 'numeric',
+									month: 'long',
+									day: 'numeric',
+								})}
+							</time>
+						</a>
+					</li>
+				))
+			}
+		</ul>
 
-  {posts.length === 0 && (
-    <p class="mt-8 text-zinc-500">No posts yet. Check back soon.</p>
-  )}
+		{
+			posts.length === 0 && (
+				<p class="mt-8 text-zinc-500">No posts yet. Check back soon.</p>
+			)
+		}
+	</div>
 </BaseLayout>

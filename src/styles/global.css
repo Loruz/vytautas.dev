@@ -1,12 +1,32 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 @plugin "@tailwindcss/typography";
 
 /* DM Mono from Google Fonts - applied in Layout */
 @theme {
-  --font-sans: "DM Mono", ui-monospace, monospace;
-  --font-mono: "DM Mono", ui-monospace, monospace;
+	--font-sans: 'DM Mono', ui-monospace, monospace;
+	--font-mono: 'DM Mono', ui-monospace, monospace;
 }
 
 body {
-  font-family: "DM Mono", ui-monospace, monospace;
+	font-family: 'DM Mono', ui-monospace, monospace;
+	/* Prevent layout shift when scrollbar appears/disappears */
+	scrollbar-gutter: stable;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+	animation-duration: 200ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+/* Apply custom timing to ALL view transitions (including morphing elements) */
+::view-transition-group(*) {
+	animation-duration: 200ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+::view-transition-old(*),
+::view-transition-new(*) {
+	animation-duration: 200ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
 }
