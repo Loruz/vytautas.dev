@@ -1,0 +1,47 @@
+---
+import { Github, Linkedin, Mail } from "@lucide/astro";
+
+interface Props {
+	github?: string;
+	linkedin?: string;
+	email?: string;
+	class?: string;
+	iconClass?: string;
+}
+
+const { github, linkedin, email, class: className = "", iconClass = "w-6 h-6" } = Astro.props;
+---
+
+<div class={`flex items-center gap-4 ${className}`.trim()}>
+	{github && (
+		<a
+			href={github}
+			target="_blank"
+			rel="noopener noreferrer"
+			class="group text-zinc-500 hover:text-green-800 transition-colors"
+			aria-label="GitHub"
+		>
+			<Github class={`${iconClass} transition-transform duration-200 group-hover:rotate-6`} />
+		</a>
+	)}
+	{linkedin && (
+		<a
+			href={linkedin.startsWith("http") ? linkedin : `https://${linkedin}`}
+			target="_blank"
+			rel="noopener noreferrer"
+			class="group text-zinc-500 hover:text-green-800 transition-colors"
+			aria-label="LinkedIn"
+		>
+			<Linkedin class={`${iconClass} transition-transform duration-200 group-hover:rotate-6`} />
+		</a>
+	)}
+	{email && (
+		<a
+			href={`mailto:${email}`}
+			class="group text-zinc-500 hover:text-green-800 transition-colors"
+			aria-label="Email"
+		>
+			<Mail class={`${iconClass} transition-transform duration-200 group-hover:rotate-6`} />
+		</a>
+	)}
+</div>

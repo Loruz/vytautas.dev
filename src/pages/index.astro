@@ -1,50 +1,79 @@
 ---
-import { getCollection } from "astro:content";
-import BaseLayout from "../layouts/BaseLayout.astro";
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
 
-const posts = (await getCollection("blog"))
+const posts = (await getCollection('blog'))
 	.filter((p) => !p.data.draft)
 	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
 	.slice(0, 5);
 ---
 
-<BaseLayout title="Vytautas — Developer & Writer" description="Personal blog and portfolio">
-  <div class="space-y-12">
-    <section>
-      <h1 class="text-3xl font-medium tracking-tight text-green-800 sm:text-4xl">
-        Hi, I'm Vytautas
-      </h1>
-      <p class="mt-4 text-lg text-zinc-600">
-        Developer and writer. This is my personal blog and portfolio — thoughts, tutorials, and projects.
-      </p>
-    </section>
+<BaseLayout
+	title="Vytautas — Developer & Writer"
+	description="Personal blog and portfolio"
+>
+	<div class="space-y-12">
+		<section class="border-b border-zinc-200 pb-8">
+			<h1
+				class="text-3xl font-medium tracking-tight text-green-800 sm:text-4xl"
+			>
+				<div class="flex items-center gap-4">
+					<img
+						src="/self.png"
+						alt="Vytautas"
+						class="w-30 h-30 object-cover inline-block rounded-full"
+					/>
+					Hi, I'm Vytautas
+				</div>
+			</h1>
+			<p class="mt-4 text-lg text-zinc-600">
+				Developer and wannabe technical writer. This is my personal blog
+				and and portfolio website — I will share thoughts, ideas, and
+				projects I've worked on.
+			</p>
+		</section>
 
-    {posts.length > 0 && (
-      <section>
-        <h2 class="text-xl font-medium text-green-800">Recent posts</h2>
-        <ul class="mt-4 space-y-3">
-          {posts.map((post) => (
-            <li>
-              <a
-                href={`/blog/${post.id}`}
-                class="text-zinc-800 underline decoration-zinc-300 underline-offset-2 hover:decoration-green-600"
-              >
-                {post.data.title}
-              </a>
-              <time class="ml-2 text-sm text-zinc-500" datetime={post.data.pubDate.toISOString()}>
-                {post.data.pubDate.toLocaleDateString('en-US', {
-                  year: 'numeric',
-                  month: 'short',
-                  day: 'numeric',
-                })}
-              </time>
-            </li>
-          ))}
-        </ul>
-        <p class="mt-4">
-          <a href="/blog" class="text-zinc-600 hover:text-green-800">All posts →</a>
-        </p>
-      </section>
-    )}
-  </div>
+		{
+			posts.length > 0 && (
+				<section>
+					<h2 class="text-xl font-medium text-green-800">
+						Recent posts
+					</h2>
+					<ul class="mt-4 space-y-3">
+						{posts.map((post) => (
+							<li>
+								<a
+									href={`/blog/${post.id}`}
+									class="text-zinc-800 underline decoration-zinc-300 underline-offset-2 hover:decoration-green-600"
+								>
+									{post.data.title}
+								</a>
+								<time
+									class="ml-2 text-sm text-zinc-500"
+									datetime={post.data.pubDate.toISOString()}
+								>
+									{post.data.pubDate.toLocaleDateString(
+										'en-US',
+										{
+											year: 'numeric',
+											month: 'short',
+											day: 'numeric',
+										}
+									)}
+								</time>
+							</li>
+						))}
+					</ul>
+					<p class="mt-4">
+						<a
+							href="/blog"
+							class="text-zinc-600 hover:text-green-800"
+						>
+							All posts →
+						</a>
+					</p>
+				</section>
+			)
+		}
+	</div>
 </BaseLayout>
