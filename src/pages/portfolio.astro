@@ -1,33 +1,163 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Socials from '../components/Socials.astro';
+
+const experience = [
+	{
+		role: 'Senior Frontend Developer',
+		company: 'Satalia',
+		period: 'Feb 2024 — Present',
+		location: 'Klaipeda, Lithuania · Remote',
+		highlights: [
+			'Architected and built an internal product dashboard in React, improving team workflows and operational visibility',
+			'Drove technical debt reduction across the frontend codebase, establishing a roadmap adopted by the product team',
+			'Implemented comprehensive E2E (Cypress) and unit testing, significantly improving release confidence',
+			'Led frontend technical planning, aligning engineering priorities with product goals',
+		],
+	},
+	{
+		role: 'Software Engineer → Senior Software Engineer',
+		company: 'Interactio',
+		period: 'Jun 2021 — Feb 2024',
+		location: 'Klaipeda, Lithuania',
+		highlights: [
+			'Built WebRTC-powered video and audio streaming features — voice equalizer, video grid, and real-time media controls used in multilingual meetings',
+			'Designed and implemented WebSocket-based chat, breakout rooms, and remote media moderation for live events',
+			'Led the migration from a monolithic frontend to a micro-frontend architecture, improving team autonomy and deploy speed',
+			'Developed an internal plugin system using Web Workers, enabling third-party integrations without impacting core performance',
+		],
+	},
+	{
+		role: 'Software Engineer / Tech Lead',
+		company: 'Whatagraph',
+		period: 'Aug 2016 — Apr 2021',
+		location: 'Klaipeda, Lithuania',
+		highlights: [
+			'Grew from early engineer to tech lead over nearly 5 years, shaping the frontend architecture from the ground up',
+			'Built and maintained the core marketing analytics dashboard used by thousands of agencies and marketers',
+			'Led a small team through multiple product iterations, balancing technical quality with fast delivery cycles',
+		],
+	},
+];
+
+const skills = [
+	{
+		category: 'Core',
+		items: 'React, Vue, Svelte, TypeScript, JavaScript, Vite',
+	},
+	{ category: 'State & Data', items: 'Tanstack libs, REST APIs, GraphQL' },
+	{ category: 'Real-time', items: 'WebRTC, WebSockets, Web Workers' },
+	{ category: 'Testing', items: 'Cypress, Unit Testing, TDD, Vitest' },
+	{
+		category: 'Architecture',
+		items: 'Micro-frontends, Design Systems, SSR, SSG',
+	},
+	{
+		category: 'Exploring',
+		items: 'Full-stack SaaS, AI, WebGL / Three.js, Deno, Bun',
+	},
+];
 ---
 
 <BaseLayout
-  title="Portfolio — vytautas.dev"
-  description="About me and selected projects"
+	title="About me — vytautas.dev"
+	description="Vytautas Preikšaitis — Senior Frontend Developer with 9+ years of experience building real-time web applications"
 >
-  <div class="space-y-16">
-    <section>
-      <h1 class="text-3xl font-medium tracking-tight text-green-800 sm:text-4xl">Portfolio</h1>
-      <p class="mt-4 text-lg text-zinc-600">
-        A bit about me and the work I do. You can use this page to introduce yourself,
-        highlight projects, talks, or anything you want to showcase.
-      </p>
-    </section>
+	<div class="space-y-14">
+		<section>
+			<h1
+				class="text-3xl font-medium tracking-tight text-green-800 sm:text-4xl"
+			>
+				Vytautas Preikšaitis
+			</h1>
+			<p class="mt-1 text-lg text-zinc-500">
+				Senior Frontend Developer · 9+ years in web
+			</p>
 
-    <section>
-      <h2 class="text-xl font-medium text-green-800">About</h2>
-      <p class="mt-3 text-zinc-600">
-        Add your bio, background, and what you're currently focused on. This is your
-        self-presentation space.
-      </p>
-    </section>
+			<div class="mt-6 space-y-4 text-zinc-600 leading-relaxed">
+				<p>
+					I'm a self-taught software engineer who switched careers to
+					pursue what felt like a calling. What started as curiosity
+					turned into nearly a decade of building products that people
+					actually use — from marketing analytics dashboards to
+					real-time multilingual meeting platforms serving thousands
+					of users.
+				</p>
+				<p>
+					I care most about building things that work well and are
+					pleasant to maintain. I've led frontend teams, broken
+					monoliths into micro-frontends, shipped WebRTC streaming
+					features, and championed testing practices that let teams
+					deploy with confidence. I'm at my best when I can combine
+					technical depth with product thinking.
+				</p>
+				<p>
+					Right now I'm expanding into full-stack development, digging
+					into AI tooling, and exploring creative coding with WebGL.
+					I'm always looking for the next interesting problem to
+					solve.
+				</p>
+			</div>
+		</section>
 
-    <section>
-      <h2 class="text-xl font-medium text-green-800">Projects</h2>
-      <p class="mt-3 text-zinc-600">
-        List your notable projects, open source work, or side projects here.
-      </p>
-    </section>
-  </div>
+		<section>
+			<h2 class="text-xl font-medium text-green-800">Experience</h2>
+			<div class="mt-6 space-y-10">
+				{
+					experience.map((job) => (
+						<div class="group">
+							<div class="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
+								<h3 class="font-medium text-zinc-800">
+									{job.role}
+								</h3>
+								<span class="text-sm text-zinc-400">
+									{job.period}
+								</span>
+							</div>
+							<p class="mt-0.5 text-sm text-zinc-500">
+								{job.company} · {job.location}
+							</p>
+							<ul class="mt-3 space-y-1.5">
+								{job.highlights.map((h) => (
+									<li class="relative pl-4 text-sm text-zinc-600 before:absolute before:left-0 before:top-[0.6em] before:h-1 before:w-1 before:rounded-full before:bg-green-700">
+										{h}
+									</li>
+								))}
+							</ul>
+						</div>
+					))
+				}
+			</div>
+		</section>
+
+		<section>
+			<h2 class="text-xl font-medium text-green-800">Skills</h2>
+			<div class="mt-4 grid grid-cols-1 gap-x-8 gap-y-2">
+				{
+					skills.map((s) => (
+						<div class="flex gap-2 py-1.5 text-sm">
+							<span class="shrink-0 text-zinc-400">
+								{s.category}
+							</span>
+							<span class="text-zinc-600">{s.items}</span>
+						</div>
+					))
+				}
+			</div>
+		</section>
+
+		<section class="border-t border-zinc-200 pt-8">
+			<h2 class="text-xl font-medium text-green-800">Get in touch</h2>
+			<p class="mt-3 text-zinc-600">
+				I'm open to interesting opportunities and collaborations. Reach
+				out if you'd like to work together.
+			</p>
+			<Socials
+				class="mt-4"
+				github="https://github.com/Loruz/vytautas.dev"
+				linkedin="https://linkedin.com/in/vytautasp"
+				email="vpreiks@gmail.com"
+			/>
+		</section>
+	</div>
 </BaseLayout>

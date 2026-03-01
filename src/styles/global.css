@@ -1,14 +1,13 @@
 @import 'tailwindcss';
 @plugin "@tailwindcss/typography";
 
-/* DM Mono from Google Fonts - applied in Layout */
 @theme {
-	--font-sans: 'DM Mono', ui-monospace, monospace;
-	--font-mono: 'DM Mono', ui-monospace, monospace;
+	--font-sans: 'Berkeley Mono', 'IBM Plex Mono', ui-monospace, monospace;
+	--font-mono: 'Berkeley Mono', 'IBM Plex Mono', ui-monospace, monospace;
 }
 
 body {
-	font-family: 'DM Mono', ui-monospace, monospace;
+	font-family: 'Berkeley Mono', 'IBM Plex Mono', ui-monospace, monospace;
 	/* Prevent layout shift when scrollbar appears/disappears */
 	scrollbar-gutter: stable;
 }
@@ -34,4 +33,55 @@ body {
 article img {
 	width: 100%;
 	height: auto;
+}
+
+/* Retro link styles */
+a {
+	transition: color 0.15s ease;
+}
+
+.retro-link {
+	position: relative;
+	text-decoration: none;
+	color: var(--color-zinc-600);
+	border-bottom: 1px dashed var(--color-zinc-400);
+	transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.retro-link:hover {
+	color: var(--color-green-800);
+	border-bottom-style: solid;
+	border-bottom-color: var(--color-green-700);
+}
+
+.retro-btn {
+	display: inline-block;
+	padding: 0.375rem 0.875rem;
+	border: 1px solid var(--color-zinc-300);
+	color: var(--color-zinc-600);
+	font-size: 0.875rem;
+	text-decoration: none;
+	box-shadow: 0 2px 0 var(--color-zinc-200);
+	transition: all 0.15s ease;
+}
+
+.retro-btn:hover {
+	border-color: var(--color-green-700);
+	color: var(--color-green-800);
+	background-color: var(--color-green-50);
+	box-shadow: 0 2px 0 var(--color-green-300);
+}
+
+.retro-btn:active {
+	box-shadow: 0 0 0 var(--color-green-300);
+	transform: translateY(2px);
+}
+
+.retro-tag {
+	display: inline-block;
+	padding: 0.125rem 0.5rem;
+	border: 1px solid var(--color-green-300);
+	color: var(--color-green-800);
+	font-size: 0.875rem;
+	box-shadow: 0 2px 0 var(--color-green-200);
 }

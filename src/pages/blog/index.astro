@@ -10,30 +10,33 @@ const posts = (await getCollection('blog'))
 <BaseLayout title="Blog — vytautas.dev" description="Blog posts and articles">
 	<div class="mx-auto w-full">
 		<h1 class="text-3xl font-medium tracking-tight text-green-800">
-			My post list
+			<span class="text-zinc-400 font-normal">$ </span>ls posts/
 		</h1>
 		<p class="mt-2 text-zinc-600">
 			Technical posts, retrospective articles, and various notes.
 		</p>
 
-		<ul class="mt-10 space-y-8">
+		<ul class="mt-10 space-y-6">
 			{
-				posts.map((post) => (
-					<li class="border-b border-zinc-200 pb-8 last:border-0">
+				posts.map((post, i) => (
+					<li class="border-b border-zinc-200 pb-6 last:border-0">
 						<a href={`/blog/${post.id}`} class="group block">
-							<h2
-								class="text-xl font-medium text-green-800 group-hover:text-green-700"
-								transition:name={`post-title-${post.id}`}
-							>
-								{post.data.title}
-							</h2>
+							<div class="flex items-baseline gap-3">
+								<span class="text-zinc-400 text-sm tabular-nums shrink-0">{String(i).padStart(2, '0')}</span>
+								<h2
+									class="text-xl font-medium text-green-800 group-hover:text-green-700 transition-colors duration-150"
+									transition:name={`post-title-${post.id}`}
+								>
+									{post.data.title}
+								</h2>
+							</div>
 							{post.data.description && (
-								<p class="mt-1 text-zinc-600">
+								<p class="mt-1 pl-9 text-zinc-600">
 									{post.data.description}
 								</p>
 							)}
 							<time
-								class="mt-2 block text-sm text-zinc-500"
+								class="mt-1 block pl-9 text-sm text-zinc-400"
 								datetime={post.data.pubDate.toISOString()}
 							>
 								{post.data.pubDate.toLocaleDateString('en-US', {
