@@ -24,34 +24,37 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const imageURL = new URL(image, Astro.site);
 
 // Structured data
-const structuredData = type === "article" ? {
-	type: "BlogPosting" as const,
-	data: {
-		headline: title,
-		description,
-		image: imageURL.toString(),
-		datePublished: publishedTime?.toISOString(),
-		author: {
-			"@type": "Person",
-			name: author,
-		},
-		publisher: {
-			"@type": "Person",
-			name: "Vytautas Preiksaitis",
-		},
-	}
-} : {
-	type: "WebSite" as const,
-	data: {
-		name: "Vytautas.dev",
-		description,
-		url: Astro.site?.toString(),
-		author: {
-			"@type": "Person",
-			name: "Vytautas Preiksaitis",
-		},
-	}
-};
+const structuredData =
+	type === "article"
+		? {
+				type: "BlogPosting" as const,
+				data: {
+					headline: title,
+					description,
+					image: imageURL.toString(),
+					datePublished: publishedTime?.toISOString(),
+					author: {
+						"@type": "Person",
+						name: author,
+					},
+					publisher: {
+						"@type": "Person",
+						name: "Vytautas Preiksaitis",
+					},
+				},
+			}
+		: {
+				type: "WebSite" as const,
+				data: {
+					name: "Vytautas.dev",
+					description,
+					url: Astro.site?.toString(),
+					author: {
+						"@type": "Person",
+						name: "Vytautas Preiksaitis",
+					},
+				},
+			};
 ---
 
 <!-- Basic Meta Tags -->

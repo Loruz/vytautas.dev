@@ -1,7 +1,7 @@
 ---
 title: 'GitHub Cleanup'
 description: 'How I cleaned up my GitHub repositories.'
-pubDate: 2026-02-19
+pubDate: 2026-02-23
 tags: ['github', 'cleanup']
 image: https://i0.wp.com/blog.artsper.com/wp-content/uploads/2022/04/New-Featured-Image-1200-x-675-6.jpg?fit=1200%2C675&ssl=1
 ---
